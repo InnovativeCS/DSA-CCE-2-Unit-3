@@ -63,9 +63,9 @@ Enter category: Casual
 
 Clothing item added successfully!
 
- Output
+Output
 
-===== WARDROBE ITEMS =====
+WARDROBE ITEMS 
 
 Item: Shirt
 Color: White
