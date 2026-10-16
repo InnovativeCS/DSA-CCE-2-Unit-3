@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 #include <limits>
 using namespace std;
@@ -7,20 +6,26 @@ using namespace std;
 class Clothing {
 public:
     string item, color, fabric, category;
+    Clothing* next;
 
     Clothing(string i, string c, string f, string cat) {
         item = i;
         color = c;
         fabric = f;
         category = cat;
+        next = NULL;
     }
 };
 
 class Wardrobe {
 private:
-    vector<Clothing> clothes;
+    Clothing* head;
 
 public:
+    Wardrobe() {
+        head = NULL;
+    }
+
     void addClothing() {
         string item, color, fabric, category;
 
@@ -42,9 +47,20 @@ public:
             return;
         }
 
-        clothes.push_back(
-            Clothing(item, color, fabric, category)
-        );
+        Clothing* newNode =
+            new Clothing(item, color, fabric, category);
+
+        if (head == NULL) {
+            head = newNode;
+        } else {
+            Clothing* temp = head;
+
+            while (temp->next != NULL) {
+                temp = temp->next;
+            }
+
+            temp->next = newNode;
+        }
 
         cout << "\nClothing item added successfully!\n";
     }
@@ -52,17 +68,22 @@ public:
     void viewWardrobe() {
         cout << "\n===== WARDROBE ITEMS =====\n";
 
-        if (clothes.empty()) {
+        if (head == NULL) {
             cout << "Wardrobe is empty.\n";
             return;
         }
 
-        for (int i = 0; i < clothes.size(); i++) {
-            cout << "\nItem " << i + 1 << endl;
-            cout << "Name: " << clothes[i].item << endl;
-            cout << "Color: " << clothes[i].color << endl;
-            cout << "Fabric: " << clothes[i].fabric << endl;
-            cout << "Category: " << clothes[i].category << endl;
+        Clothing* temp = head;
+        int i = 1;
+
+        while (temp != NULL) {
+            cout << "\nItem " << i++ << endl;
+            cout << "Name: " << temp->item << endl;
+            cout << "Color: " << temp->color << endl;
+            cout << "Fabric: " << temp->fabric << endl;
+            cout << "Category: " << temp->category << endl;
+
+            temp = temp->next;
         }
     }
 
@@ -71,16 +92,25 @@ public:
 
         bool found = false;
 
-        for (int i = 0; i < clothes.size(); i++) {
-            for (int j = i + 1; j < clothes.size(); j++) {
-                if (clothes[i].category != clothes[j].category) {
-                    cout << clothes[i].item << " (" 
-                         << clothes[i].color << ") + "
-                         << clothes[j].item << " ("
-                         << clothes[j].color << ")\n";
+        Clothing* a = head;
+
+        while (a != NULL) {
+            Clothing* b = a->next;
+
+            while (b != NULL) {
+                if (a->category != b->category) {
+                    cout << a->item << " ("
+                         << a->color << ") + "
+                         << b->item << " ("
+                         << b->color << ")\n";
+
                     found = true;
                 }
+
+                b = b->next;
             }
+
+            a = a->next;
         }
 
         if (!found) {
@@ -93,30 +123,45 @@ public:
 
         bool found = false;
 
-        for (int i = 0; i < clothes.size(); i++) {
-            for (int j = 0; j < clothes.size(); j++) {
-                if (clothes[i].category == "Top" &&
-                    clothes[j].category == "Bottom") {
+        Clothing* a = head;
 
-                    cout << clothes[i].item << " (" 
-                         << clothes[i].color << ") + "
-                         << clothes[j].item << " ("
-                         << clothes[j].color << ")\n";
+        while (a != NULL) {
+            Clothing* b = head;
+
+            while (b != NULL) {
+                if (a->category == "Top" &&
+                    b->category == "Bottom") {
+                    cout << a->item << " ("
+                         << a->color << ") + "
+                         << b->item << " ("
+                         << b->color << ")\n";
 
                     found = true;
                 }
+
+                b = b->next;
             }
+
+            a = a->next;
         }
 
         if (!found) {
             cout << "Add at least one Top and one Bottom.\n";
         }
     }
+
+    ~Wardrobe() {
+        while (head != NULL) {
+            Clothing* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
 };
 
 int main() {
     Wardrobe w;
-    int choice;
+    int choice = 0;
 
     do {
         cout << "\n===== MODULAR WARDROBE & FABRIC PAIRING ENGINE =====\n";
@@ -131,6 +176,7 @@ int main() {
             cout << "Invalid input. Please enter a number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            choice = 0;
             continue;
         }
 
@@ -140,18 +186,23 @@ int main() {
             case 1:
                 w.addClothing();
                 break;
+
             case 2:
                 w.viewWardrobe();
                 break;
+
             case 3:
                 w.findMatchingClothes();
                 break;
+
             case 4:
                 w.outfitSuggestions();
                 break;
+
             case 5:
                 cout << "Thank you for using Wardrobe Engine!\n";
                 break;
+
             default:
                 cout << "Invalid choice. Try again.\n";
         }
