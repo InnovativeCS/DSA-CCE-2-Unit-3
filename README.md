@@ -63,7 +63,7 @@ Enter category: Casual
 
 Clothing item added successfully!
 
-Expected Output
+ Output
 
 ===== WARDROBE ITEMS =====
 
