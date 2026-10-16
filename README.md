@@ -1,82 +1,49 @@
-# Modular-Wardrobe-Fabric-Pairing-Engine
+# Modular-Wardrobe-and-Fabric-Pairing-System-using-Linked-List
 
+## Problem Statement
+To design and implement a C++ based Modular Wardrobe and Fabric Pairing System using a Singly Linked List. The system stores clothing details such as item name, color, fabric type, and category. It allows users to add clothing items, display wardrobe items, find clothing combinations from different categories, and suggest outfits by combining Tops and Bottoms.
 
-Problem Statement
+## Objective
+To implement a Singly Linked List in C++ for managing wardrobe items and performing clothing combination and outfit suggestion operations.
 
-To design and develop a Modular Wardrobe & Fabric Pairing Engine that helps users organize their clothes and find suitable clothing combinations based on fabric type, color, and clothing category.
+## Data Structure Used
+Singly Linked List
 
-Objective
+## Operations
+Add Clothing Item  
+View Wardrobe Items  
+Find Matching Clothes  
+Get Outfit Suggestions  
+Exit
 
-To develop a system that organizes wardrobe items and suggests suitable clothing combinations to make outfit selection easier and save time.
+## Concepts Used
+C++  
+Singly Linked List  
+Classes and Objects  
+Pointers  
+Dynamic Memory Allocation  
+Loops and Functions  
+Constructors and Destructors
 
-Modules Used
-
-- Wardrobe Management
-- Fabric Pairing
-- Color Matching
-- Outfit Suggestions
-
-Operations
-
-1. Add Clothing Item
-2. View Wardrobe Items
-3. Find Matching Clothes
-4. Get Outfit Suggestions
-5. Exit
-
-Concepts Used
-
-- Wardrobe Management
-- Fabric Matching
-- Color Matching
-- Clothing Categories
-- Outfit Recommendation
-- Modular Design
-
-Algorithm
-
+## Algorithm
 1. Start the program.
-2. Display the available operations.
-3. Allow the user to add clothing items.
-4. Store clothing details such as color, fabric, and category.
-5. Display the available wardrobe items.
-6. Find suitable clothing combinations based on matching criteria.
-7. Display the suggested outfits.
+2. Create an empty wardrobe using a Singly Linked List.
+3. Display the menu of available operations.
+4. Add a new clothing item by storing its name, color, fabric type, and category in a new node.
+5. Display all clothing items by traversing the linked list.
+6. Find clothing combinations by comparing items belonging to different categories.
+7. Suggest outfits by combining items categorized as Top and Bottom.
 8. Repeat the operations until the user selects Exit.
-9. Stop the program.
+9. Free the dynamically allocated memory when the program ends.
+10. Stop the program.
 
-Sample Input
+## Advantages
+- Clothing details are stored dynamically using a Singly Linked List.
+- New clothing items can be added without a fixed-size array.
+- All stored wardrobe items can be displayed easily.
+- Clothing combinations from different categories can be generated.
+- Outfit suggestions can be created by combining Tops and Bottoms.
+- The project helps demonstrate pointers and dynamic memory allocation.
 
-===== MODULAR WARDROBE & FABRIC PAIRING ENGINE =====
-
-1. Add Clothing Item
-2. View Wardrobe Items
-3. Find Matching Clothes
-4. Get Outfit Suggestions
-5. Exit
-
-Enter your choice: 1
-Enter clothing item: Shirt
-Enter color: White
-Enter fabric type: Cotton
-Enter category: Casual
-
-Clothing item added successfully!
-
-Output
-
-WARDROBE ITEMS 
-
-Item: Shirt
-Color: White
-Fabric: Cotton
-Category: Casual
-
-Wardrobe item displayed successfully!
-
-Future Scope
-
-- AI-based outfit recommendations.
-- Weather-based clothing suggestions.
-- Personalized clothing combinations.
-- Integration with a mobile application.
+## Conclusion
+The Modular Wardrobe and Fabric Pairing System demonstrates the implementation of a Singly Linked List in C++. It performs essential operations such as adding clothing items, displaying wardrobe details, finding combinations from different categories, and suggesting outfits. This project helps in understanding linked lists, pointers, classes, objects, and dynamic memory allocation.
