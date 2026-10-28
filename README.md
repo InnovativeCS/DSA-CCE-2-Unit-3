@@ -1,49 +1,55 @@
-# Modular-Wardrobe-and-Fabric-Pairing-System-using-Linked-List
+# Water Pipeline Network Using Kruskal's Algorithm
 
 ## Problem Statement
-To design and implement a C++ based Modular Wardrobe and Fabric Pairing System using a Singly Linked List. The system stores clothing details such as item name, color, fabric type, and category. It allows users to add clothing items, display wardrobe items, find clothing combinations from different categories, and suggest outfits by combining Tops and Bottoms.
+Develop a water pipeline network with installation costs and apply Kruskal's algorithm to select the minimum-cost pipeline connections required to connect all distribution points.
 
-## Objective
-To implement a Singly Linked List in C++ for managing wardrobe items and performing clothing combination and outfit suggestion operations.
+## Features
+- Add distribution points.
+- Add pipeline connections and installation costs.
+- Display points and available pipelines.
+- Find the minimum-cost network using Kruskal's algorithm.
+- Display selected connections and total installation cost.
+- Detect disconnected networks.
 
-## Data Structure Used
-Singly Linked List
+## DSA Concepts
+Weighted undirected graph, edge list, sorting, Disjoint Set Union (Union-Find), cycle detection, and Minimum Spanning Tree.
 
-## Operations
-Add Clothing Item  
-View Wardrobe Items  
-Find Matching Clothes  
-Get Outfit Suggestions  
-Exit
+## Dev-C++ Instructions
+1. Extract this ZIP file.
+2. Open `water_pipeline_kruskal.cpp` in Dev-C++.
+3. Select **Execute -> Compile & Run**.
+4. Add distribution points first.
+5. Add the connections and costs.
+6. Select option 5 to run Kruskal's algorithm.
 
-## Concepts Used
-C++  
-Singly Linked List  
-Classes and Objects  
-Pointers  
-Dynamic Memory Allocation  
-Loops and Functions  
-Constructors and Destructors
+The source avoids C++11 lambda expressions and should work with older Dev-C++ compiler configurations.
 
-## Algorithm
-1. Start the program.
-2. Create an empty wardrobe using a Singly Linked List.
-3. Display the menu of available operations.
-4. Add a new clothing item by storing its name, color, fabric type, and category in a new node.
-5. Display all clothing items by traversing the linked list.
-6. Find clothing combinations by comparing items belonging to different categories.
-7. Suggest outfits by combining items categorized as Top and Bottom.
-8. Repeat the operations until the user selects Exit.
-9. Free the dynamically allocated memory when the program ends.
-10. Stop the program.
+## Sample Data
+Distribution points:
+0 Reservoir
+1 North Colony
+2 South Colony
+3 Hospital Zone
+4 Industrial Area
 
-## Advantages
-- Clothing details are stored dynamically using a Singly Linked List.
-- New clothing items can be added without a fixed-size array.
-- All stored wardrobe items can be displayed easily.
-- Clothing combinations from different categories can be generated.
-- Outfit suggestions can be created by combining Tops and Bottoms.
-- The project helps demonstrate pointers and dynamic memory allocation.
+Pipeline connections (first ID, second ID, cost):
+0 1 4
+0 2 3
+1 2 2
+1 3 5
+2 3 3
+2 4 6
+3 4 4
 
-## Conclusion
-The Modular Wardrobe and Fabric Pairing System demonstrates the implementation of a Singly Linked List in C++. It performs essential operations such as adding clothing items, displaying wardrobe details, finding combinations from different categories, and suggesting outfits. This project helps in understanding linked lists, pointers, classes, objects, and dynamic memory allocation.
+Expected minimum-cost network cost: 12
+Expected selected connections:
+- North Colony -- South Colony: 2
+- Reservoir -- South Colony: 3
+- South Colony -- Hospital Zone: 3
+- Hospital Zone -- Industrial Area: 4
+
+## Complexity
+Sorting edges using bubble sort takes O(E^2) time in this beginner-friendly implementation. Union-Find operations are nearly constant amortized time. Space complexity is O(V + E).
+
+## Note
+This is an educational simulation. Installation costs are entered by the user and are not live construction estimates.
